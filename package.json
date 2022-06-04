@@ -8,16 +8,19 @@
     "url": "https://github.com/shivs077/useTypingEffect"
   },
   "scripts": {
+    "build": "rm -rf dist && webpack",
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "rm -rf dist & webpack",
     "predeploy": "yarn run build",
-    "deploy": "yarn predeploy & gh-pages -d dist"
+    "deploy": "yarn predeploy && gh-pages -d dist",
+    "ci": "yarn && yarn build"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
     "babel-loader": "^8.2.5",
+    "gh-pages": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "webpack": "^5.72.1",
@@ -26,8 +29,5 @@
   },
   "peerDependencies": {
     "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
-  },
-  "dependencies": {
-    "html-webpack-plugin": "^5.5.0"
   }
 }
